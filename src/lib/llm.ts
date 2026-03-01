@@ -33,7 +33,7 @@ export function getModel(): LanguageModel {
     case "gemini":
       return createGoogleGenerativeAI({
         apiKey: process.env.GOOGLE_API_KEY!,
-      })("gemini-2.0-flash");
+      })("gemini-2.5-flash");
 
     case "claude":
       return createAnthropic({
