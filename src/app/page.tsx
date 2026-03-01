@@ -2,6 +2,7 @@
 
 import { useChat } from "@ai-sdk/react";
 import { useRef, useEffect, useState, type FormEvent } from "react";
+import Image from "next/image";
 import { MarkdownMessage } from "@/components/chat/markdown-message";
 import resumeData from "../../data/resume.json";
 
@@ -74,21 +75,14 @@ export default function ChatPage() {
         <div className="max-w-3xl mx-auto">
           {/* Avatar + Name + Title */}
           <div className="flex items-center gap-4 mb-4">
-            <div className="w-14 h-14 rounded-xl bg-accent flex items-center justify-center shrink-0">
-              <svg
-                width="28"
-                height="28"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="white"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
-            </div>
+            <Image
+              src="/logo.png"
+              alt={PROFILE.name}
+              width={56}
+              height={56}
+              className="w-14 h-14 rounded-xl shrink-0 object-cover"
+              priority
+            />
             <div>
               <h1 className="text-xl sm:text-2xl font-bold tracking-wide uppercase text-foreground">
                 {PROFILE.name}
