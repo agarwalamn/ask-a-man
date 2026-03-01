@@ -39,7 +39,7 @@ function getEmbeddingModel(): EmbeddingModel {
     case "google":
       return createGoogleGenerativeAI({
         apiKey: process.env.GOOGLE_API_KEY!,
-      }).embeddingModel("text-embedding-004");
+      }).embeddingModel("gemini-embedding-001");
 
     default:
       throw new Error(

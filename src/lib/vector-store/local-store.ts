@@ -25,7 +25,12 @@ export class LocalVectorStore implements VectorStore {
 
   async initialize(): Promise<void> {
     if (!(await this.index.isIndexCreated())) {
-      await this.index.createIndex();
+      try {
+        await this.index.createIndex();
+      } catch {
+        // On read-only filesystems (e.g. Vercel), createIndex will fail.
+        // The committed .vector-index/ should already exist in production.
+      }
     }
   }
 
