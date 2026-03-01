@@ -1,0 +1,186 @@
+{
+  "basics": {
+    "name": "Aman Agarwal",
+    "title": "Senior Frontend Developer",
+    "summary": "Senior Frontend Developer with proven expertise in scaling React applications to 10M+ users. Specialized in performance optimization (40% improvement), micro-frontend architecture, and developer tooling. Track record of delivering mission-critical features at Paytm while maintaining exceptional user experience.",
+    "location": "Pune",
+    "email": "agarwalaman020@gmail.com",
+    "phone": "8329369915",
+    "linkedin": "https://in.linkedin.com/in/agarwalamn",
+    "github": "https://github.com/agarwalamn",
+    "website": "",
+    "resumeUrl": "https://www.linkedin.com/in/agarwalamn"
+  },
+  "experience": [
+    {
+      "company": "Godaddy",
+      "title": "Senior Software Developer",
+      "startDate": "2025-07",
+      "endDate": null,
+      "location": "",
+      "description": "Working on commerce home experience team to develop full stack application. Debugged and fixed scaling issue impacting 100k transitions per day.",
+      "skills": []
+    },
+    {
+      "company": "Paytm",
+      "title": "Senior Software Developer",
+      "startDate": "2022-09",
+      "endDate": "2025-07",
+      "location": "",
+      "teams": [
+        {
+          "name": "UPI",
+          "highlights": [
+            "Tech owner of UPI onboarding, UPI Mapper, and Manage UPI IDs pages used by 10+ million users daily.",
+            "Enhanced user experience by developing pixel-perfect UI with smooth transitions and performance-oriented pages, ensuring end-to-end integration test coverage.",
+            "Improved developer experience by implementing solutions like a VS-Code plugin and TypeScript generics, reducing overall development time by 10%."
+          ]
+        },
+        {
+          "name": "Core Apptech",
+          "highlights": [
+            "Engineered plugins for Webpack, Vite, and Next.js, improving app performance by 40% for over 50 million users.",
+            "Identified performance bottlenecks across various verticals, which helped to improve the performance by 10%.",
+            "Built 10+ reusable components, reducing development time by 20%.",
+            "Collaborated on research and development of an AI-to-code library."
+          ]
+        },
+        {
+          "name": "Feeds",
+          "highlights": [
+            "Developed the Daily SIP platform, Spotlight, and Feeds SDK, serving over 1 million active users.",
+            "Created a micro-frontend-based SDK using module federation, facilitating seamless integration of live feed UI across Paytm verticals.",
+            "Boosted app performance by 27% through effective bundle size reduction."
+          ]
+        },
+        {
+          "name": "Growth Games",
+          "highlights": [
+            "Built popular games (Spin Wheel, Bear Claw, PCL) reaching 20M+ users.",
+            "Engineered game engine optimizing performance across diverse devices.",
+            "Implemented smooth animations maintaining 60fps on low-end devices.",
+            "Designed an intuitive tutorial library to help users quickly learn and enjoy the games."
+          ]
+        }
+      ],
+      "description": "UPI: Tech owner of UPI onboarding, UPI Mapper, and Manage UPI IDs pages used by 10+ million users daily. Enhanced user experience by developing pixel-perfect UI with smooth transitions and performance-oriented pages, ensuring end-to-end integration test coverage. Improved developer experience by implementing solutions like a VS-Code plugin and TypeScript generics, reducing overall development time by 10%.\n\nCore Apptech: Engineered plugins for Webpack, Vite, and Next.js, improving app performance by 40% for over 50 million users. Identified performance bottlenecks across various verticals, which helped to improve the performance by 10%. Built 10+ reusable components, reducing development time by 20%. Collaborated on research and development of an AI-to-code library.\n\nFeeds: Developed the Daily SIP platform, Spotlight, and Feeds SDK, serving over 1 million active users. Created a micro-frontend-based SDK using module federation, facilitating seamless integration of live feed UI across Paytm verticals. Boosted app performance by 27% through effective bundle size reduction.\n\nGrowth Games: Built popular games (Spin Wheel, Bear Claw, PCL) reaching 20M+ users. Engineered game engine optimizing performance across diverse devices. Implemented smooth animations maintaining 60fps on low-end devices. Designed an intuitive tutorial library to help users quickly learn and enjoy the games.",
+      "skills": [
+        "React.js",
+        "Next.js",
+        "TypeScript",
+        "Webpack",
+        "Vite",
+        "Module Federation",
+        "Redux",
+        "React Query",
+        "Micro-frontends",
+        "Framer Motion"
+      ]
+    },
+    {
+      "company": "Raja Software Labs",
+      "title": "Software Engineer",
+      "startDate": "2021-01",
+      "endDate": "2022-08",
+      "location": "",
+      "description": "Contributed in Optum's prescription platform with telemedicine integration for 100K+ patients. Built real-time appointment scheduling system handling 1K+ daily bookings. Revamped LinkedIn's analytics dashboard UI, enhancing data visibility.",
+      "skills": []
+    }
+  ],
+  "education": [
+    {
+      "institution": "SGGSIE&T, Nanded",
+      "degree": "B.Tech — Computer Science",
+      "startDate": "2017",
+      "endDate": "2021",
+      "description": ""
+    }
+  ],
+  "skills": [
+    "React.js",
+    "Next.js",
+    "TypeScript",
+    "HTML5",
+    "CSS3",
+    "Tailwind CSS",
+    "Redux",
+    "React Query",
+    "Jest",
+    "Playwright",
+    "Storybook",
+    "Micro-frontends",
+    "Module Federation",
+    "Webpack",
+    "Vite",
+    "Bundle Optimization",
+    "Chrome DevTools",
+    "Performance Profiling",
+    "Git",
+    "CI/CD",
+    "Jira",
+    "Framer Motion"
+  ],
+  "certifications": [],
+  "projects": [
+    {
+      "name": "Paytm UPI System",
+      "description": "Tech owner of UPI onboarding, UPI Mapper, and Manage UPI IDs pages used by 10+ million users daily. Developed pixel-perfect UI with smooth transitions and performance-oriented pages with end-to-end integration test coverage.",
+      "techStack": ["React.js", "TypeScript", "Redux"],
+      "url": null,
+      "github": null,
+      "status": "production",
+      "year": 2024
+    },
+    {
+      "name": "Core Apptech Plugins",
+      "description": "Engineered plugins for Webpack, Vite, and Next.js, improving app performance by 40% for over 50 million users. Built 10+ reusable components reducing development time by 20%. Collaborated on an AI-to-code library.",
+      "techStack": ["Webpack", "Vite", "Next.js", "TypeScript"],
+      "url": null,
+      "github": null,
+      "status": "production",
+      "year": 2023
+    },
+    {
+      "name": "Feeds SDK",
+      "description": "Micro-frontend-based SDK using module federation, facilitating seamless integration of live feed UI across Paytm verticals. Developed the Daily SIP platform, Spotlight, and Feeds SDK serving over 1 million active users. Boosted app performance by 27% through bundle size reduction.",
+      "techStack": [
+        "React.js",
+        "Module Federation",
+        "TypeScript",
+        "Micro-frontends"
+      ],
+      "url": null,
+      "github": null,
+      "status": "production",
+      "year": 2023
+    },
+    {
+      "name": "Growth Games",
+      "description": "Built popular games (Spin Wheel, Bear Claw, PCL) reaching 20M+ users. Engineered game engine optimizing performance across diverse devices. Implemented smooth animations maintaining 60fps on low-end devices.",
+      "techStack": ["React.js", "Framer Motion", "TypeScript"],
+      "url": null,
+      "github": null,
+      "status": "production",
+      "year": 2022
+    },
+    {
+      "name": "Optum Prescription Platform",
+      "description": "Contributed to Optum's prescription platform with telemedicine integration for 100K+ patients. Built real-time appointment scheduling system handling 1K+ daily bookings.",
+      "techStack": ["React.js"],
+      "url": null,
+      "github": null,
+      "status": "production",
+      "year": 2021
+    }
+  ],
+  "speaking": [
+    {
+      "topic": "Micro-frontend architecture using module federation",
+      "description": "Presented on how to build scalable micro-frontend systems using Webpack Module Federation."
+    },
+    {
+      "topic": "How browser renders animations",
+      "description": "Presented on browser rendering pipeline, compositing layers, and achieving smooth 60fps animations."
+    }
+  ]
+}

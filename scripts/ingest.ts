@@ -1,13 +1,10 @@
 import path from "path";
 import dotenv from "dotenv";
-import { parseLinkedIn } from "./parsers/linkedin-parser";
-import { parseBlogPosts } from "./parsers/markdown-parser";
-import { parseProjects } from "./parsers/projects-parser";
 import { parseResume } from "./parsers/resume-parser";
 import { chunkDocuments } from "./chunker";
 import { embedTexts } from "../src/lib/embeddings";
 import { getVectorStore } from "../src/lib/vector-store";
-import type { ParsedDocument, Chunk } from "../src/types/rag";
+import type { Chunk } from "../src/types/rag";
 
 dotenv.config({ path: path.resolve(__dirname, "../.env.local") });
 
@@ -16,34 +13,12 @@ const DATA_DIR = path.resolve(__dirname, "../data");
 async function main() {
   console.log("=== AI Portfolio Ingestion Pipeline ===\n");
 
-  // --- Step 1: Parse all data sources ---
-  console.log("Step 1: Parsing data sources...\n");
+  // --- Step 1: Parse resume ---
+  console.log("Step 1: Parsing resume...\n");
 
-  const linkedInDocs = parseLinkedIn(path.join(DATA_DIR, "linkedin.json"));
-  console.log(`  LinkedIn: ${linkedInDocs.length} documents`);
-
-  const blogDocs = parseBlogPosts(path.join(DATA_DIR, "blog"));
-  console.log(`  Blog:     ${blogDocs.length} documents`);
-
-  const projectDocs = parseProjects(path.join(DATA_DIR, "projects.json"));
-  console.log(`  Projects: ${projectDocs.length} documents`);
-
-  const resumePath = path.join(DATA_DIR, "resume.pdf");
-  let resumeDocs: ParsedDocument[] = [];
-  try {
-    resumeDocs = await parseResume(resumePath);
-    console.log(`  Resume:   ${resumeDocs.length} documents`);
-  } catch {
-    console.log("  Resume:   skipped (no data/resume.pdf found)");
-  }
-
-  const allDocs: ParsedDocument[] = [
-    ...linkedInDocs,
-    ...blogDocs,
-    ...projectDocs,
-    ...resumeDocs,
-  ];
-  console.log(`\n  Total parsed documents: ${allDocs.length}\n`);
+  const resumePath = path.join(DATA_DIR, "resume.json");
+  const allDocs = await parseResume(resumePath);
+  console.log(`  Resume: ${allDocs.length} documents\n`);
 
   // --- Step 2: Chunk documents ---
   console.log("Step 2: Chunking documents...\n");

@@ -12,7 +12,7 @@ export interface ParsedDocument {
 }
 
 export interface ChunkMetadata {
-  source: "linkedin" | "blog" | "project" | "resume";
+  source: "resume";
   section: string;
   title: string;
   url?: string;
