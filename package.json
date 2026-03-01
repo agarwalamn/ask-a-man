@@ -1,17 +1,31 @@
 {
-  "name": "portfolio-temp",
+  "name": "ask-a-man",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "ingest": "tsx scripts/ingest.ts"
   },
   "dependencies": {
+    "@ai-sdk/anthropic": "^3.0.50",
+    "@ai-sdk/google": "^3.0.34",
+    "@ai-sdk/openai-compatible": "^2.0.31",
+    "@ai-sdk/react": "^3.0.107",
+    "@pinecone-database/pinecone": "^7.1.0",
+    "ai": "^6.0.105",
+    "dotenv": "^17.3.1",
+    "gray-matter": "^4.0.3",
     "next": "16.1.6",
+    "ollama-ai-provider": "^1.2.0",
+    "pdf-parse": "^2.4.5",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
+    "vectra": "^0.12.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -21,6 +35,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "tailwindcss": "^4",
+    "tsx": "^4.21.0",
     "typescript": "^5"
   }
 }
