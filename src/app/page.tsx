@@ -29,7 +29,8 @@ function getMessageText(parts: Array<{ type: string; text?: string }>): string {
 }
 
 export default function ChatPage() {
-  const { messages, sendMessage, status } = useChat();
+  const { messages, sendMessage, status, error, clearError, regenerate } =
+    useChat();
   const [input, setInput] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -245,6 +246,29 @@ export default function ChatPage() {
                     <span className="w-2 h-2 bg-muted-foreground/60 rounded-full animate-pulse-dot [animation-delay:0.2s]" />
                     <span className="w-2 h-2 bg-muted-foreground/60 rounded-full animate-pulse-dot [animation-delay:0.4s]" />
                   </div>
+                </div>
+              </div>
+            )}
+
+            {/* Error state */}
+            {error && (
+              <div className="flex justify-start animate-fade-in">
+                <div className="max-w-[85%] sm:max-w-[75%] rounded-xl px-4 py-3 text-sm border border-red-500/40 bg-red-500/10">
+                  <p className="text-red-400 mb-2">
+                    {error.message.includes("429") ||
+                    error.message.toLowerCase().includes("quota")
+                      ? "Rate limit reached — please wait a moment and try again."
+                      : "Something went wrong. The AI service may be temporarily unavailable."}
+                  </p>
+                  <button
+                    onClick={() => {
+                      clearError();
+                      regenerate();
+                    }}
+                    className="text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded-lg border border-red-500/40 text-red-400 hover:bg-red-500/20 transition-colors"
+                  >
+                    Retry
+                  </button>
                 </div>
               </div>
             )}

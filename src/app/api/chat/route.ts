@@ -24,36 +24,45 @@ import { sanitizeContext } from "@/lib/safety";
  * message — otherwise a long conversation would muddy the search query.
  */
 export async function POST(req: Request) {
-  const { messages }: { messages: UIMessage[] } = await req.json();
+  try {
+    const { messages }: { messages: UIMessage[] } = await req.json();
 
-  const lastUserMessage = messages.filter((m) => m.role === "user").pop();
-  if (!lastUserMessage) {
-    return new Response("No user message found", { status: 400 });
+    const lastUserMessage = messages.filter((m) => m.role === "user").pop();
+    if (!lastUserMessage) {
+      return new Response("No user message found", { status: 400 });
+    }
+
+    const queryText = lastUserMessage.parts
+      .filter((p): p is { type: "text"; text: string } => p.type === "text")
+      .map((p) => p.text)
+      .join(" ");
+
+    const results = await retrieveContext(queryText);
+
+    const sanitizedResults = results.map((r) => ({
+      ...r,
+      text: sanitizeContext(r.text),
+    }));
+
+    const { contextText } = buildContext(sanitizedResults);
+
+    const systemPrompt = buildSystemPrompt(contextText);
+
+    const modelMessages = await convertToModelMessages(messages);
+
+    const result = streamText({
+      model: getModel(),
+      system: systemPrompt,
+      messages: modelMessages,
+    });
+
+    return result.toUIMessageStreamResponse();
+  } catch (err: unknown) {
+    const message =
+      err instanceof Error ? err.message : "An unexpected error occurred";
+    const status = message.toLowerCase().includes("quota") ? 429 : 500;
+
+    console.error("[chat/route]", message);
+    return Response.json({ error: message }, { status });
   }
-
-  const queryText = lastUserMessage.parts
-    .filter((p): p is { type: "text"; text: string } => p.type === "text")
-    .map((p) => p.text)
-    .join(" ");
-
-  const results = await retrieveContext(queryText);
-
-  const sanitizedResults = results.map((r) => ({
-    ...r,
-    text: sanitizeContext(r.text),
-  }));
-
-  const { contextText } = buildContext(sanitizedResults);
-
-  const systemPrompt = buildSystemPrompt(contextText);
-
-  const modelMessages = await convertToModelMessages(messages);
-
-  const result = streamText({
-    model: getModel(),
-    system: systemPrompt,
-    messages: modelMessages,
-  });
-
-  return result.toUIMessageStreamResponse();
 }
